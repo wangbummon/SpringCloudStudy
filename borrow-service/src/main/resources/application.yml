@@ -1,0 +1,31 @@
+server:
+  port: 8301
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_cloud?useUnicode=true&character=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: borrow-service
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka01:8801/eureka, http://eureka01:8802/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+
+
