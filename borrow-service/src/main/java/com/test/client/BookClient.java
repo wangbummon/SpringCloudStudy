@@ -16,5 +16,5 @@ public interface BookClient {
 
     @ApiOperation("获取书籍相关信息")
     @GetMapping("/book/{bid}")
-    public Book getBookByBid(@PathVariable("bid") Integer bid);
+    Book getBookByBid(@PathVariable("bid") Integer bid);
 }
