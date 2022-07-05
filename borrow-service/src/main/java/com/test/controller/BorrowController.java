@@ -28,19 +28,12 @@ public class BorrowController {
 
     private final IBorrowService borrowService;
 
-    @HystrixCommand(fallbackMethod = "onError")
     @ApiOperation("查询借阅详情")
     @GetMapping("/{uid}/{bid}")
     public UserBookVo getUserBookByUidBid(@PathVariable("uid") Integer uid, @PathVariable("bid") Integer bid) {
         return borrowService.getBorrowListByBidUid(bid, uid);
     }
 
-    /**
-     * 备选方案 这里直接返回空
-     * 参数与返回值要与主方案一致
-     */
-    public UserBookVo onError(@PathVariable("uid") Integer uid, @PathVariable("bid") Integer bid) {
-        return new UserBookVo();
-    }
+
 
 }
