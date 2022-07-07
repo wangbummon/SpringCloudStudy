@@ -1,0 +1,17 @@
+server:
+  port: 8500
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8801/eureka,http://localhost:8802/eureka
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    # 配置路由
+    gateway:
+      routes:
+        - id: borrow-service  # 路由名称
+          uri: lb://borrow-service # 路由的地址 lb表示使用负载均衡到微服务 也可以通过http正常转发
+          predicates: # 路由规则 断言什么请求会被路由
+            - Path=/borrow/** # 只要访问到此路径 一律都被路由到上面指定的服务

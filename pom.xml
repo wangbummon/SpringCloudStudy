@@ -11,6 +11,7 @@
         <module>common</module>
         <module>eureka-server</module>
         <module>hystrix-dashboard</module>
+        <module>gateway-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -30,11 +31,6 @@
     </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
