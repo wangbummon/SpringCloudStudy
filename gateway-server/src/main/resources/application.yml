@@ -15,3 +15,13 @@ spring:
           uri: lb://borrow-service # 路由的地址 lb表示使用负载均衡到微服务 也可以通过http正常转发
           predicates: # 路由规则 断言什么请求会被路由
             - Path=/borrow/** # 只要访问到此路径 一律都被路由到上面指定的服务
+        - id: book-service
+          uri: lb://book-service
+          predicates:
+            - Path=/book/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - AddRequestHeader=Test,Hello World! # AddRequestHeader 表示给请求添加一个名为Test 值为Hello World!的Header
