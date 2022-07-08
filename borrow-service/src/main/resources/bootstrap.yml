@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      # 服务名称 其实就是文件名
+      name: borrow-service
+      # 配置服务器的地址
+      uri: http://localhost:8700
+      # 环境
+      profile: dev
+      # 分支
+      label: master
